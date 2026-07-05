@@ -13,7 +13,7 @@ export function Header() {
 
           <div className="flex items-center gap-3">
             <a
-              href="public/google_intern.pdf"
+              href="/google_intern.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2 rounded-full border border-foreground/30 text-sm font-semibold tracking-wider text-foreground hover:bg-foreground hover:text-background transition-all duration-200 uppercase"
