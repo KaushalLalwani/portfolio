@@ -24,16 +24,16 @@ const handleSubmit = async (e) => {
 
   try {
     await emailjs.send(
-      "YOUR_SERVICE_ID", // Replace
-      "YOUR_TEMPLATE_ID", // Replace
-      {
+    import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+    {
         from_name: formData.name,
         from_email: formData.email,
         subject: formData.subject,
         message: formData.message,
-      },
-      "YOUR_PUBLIC_KEY" // Replace
-    );
+    },
+    import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+);
 
     alert("Message sent successfully!");
 
@@ -136,30 +136,43 @@ const handleSubmit = async (e) => {
                   </div>
                   <div>
                     <Input
-                      type="email"
-                      placeholder="Your Email"
-                      className="bg-input-background border-border"
-                      required
-                    />
+  type="email"
+  placeholder="Your Email"
+  value={formData.email}
+  onChange={(e) =>
+    setFormData({ ...formData, email: e.target.value })
+  }
+  required
+/>
                   </div>
                   <div>
                     <Input
-                      placeholder="Subject"
-                      className="bg-input-background border-border"
-                      required
-                    />
+  placeholder="Subject"
+  value={formData.subject}
+  onChange={(e) =>
+    setFormData({ ...formData, subject: e.target.value })
+  }
+  required
+/>
                   </div>
                   <div>
                     <Textarea
-                      placeholder="Your Message"
-                      rows={5}
-                      className="bg-input-background border-border resize-none"
-                      required
-                    />
+  rows={5}
+  placeholder="Your Message"
+  value={formData.message}
+  onChange={(e) =>
+    setFormData({ ...formData, message: e.target.value })
+  }
+  required
+/>
                   </div>
-                  <Button type="submit" className="w-full">
-                    Send Message
-                  </Button>
+                  <Button
+  type="submit"
+  className="w-full"
+  disabled={loading}
+>
+  {loading ? "Sending..." : "Send Message"}
+</Button>
                 </form>
               </CardContent>
             </Card>

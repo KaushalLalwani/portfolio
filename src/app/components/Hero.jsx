@@ -85,7 +85,7 @@ export function Hero() {
               className="gap-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
             >
               <a
-                href="/src/imports/google_intern.pdf"
+                href="public/google_intern.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
